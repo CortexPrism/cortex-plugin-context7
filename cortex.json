@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-context7",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Injects up-to-date library docs into agent context",
   "kind": "esm",
   "entryPoint": "mod.ts",
@@ -17,10 +17,33 @@
       "name": "context7_get_docs",
       "description": "Get library documentation",
       "params": [
-        { "name": "library", "type": "string", "description": "Library name (e.g. react, nextjs, prisma)", "required": true },
-        { "name": "version", "type": "string", "description": "Library version", "required": false, "default": "latest" },
-        { "name": "topic", "type": "string", "description": "Specific topic within the docs", "required": false },
-        { "name": "format", "type": "string", "description": "Output format", "required": false, "enum": ["markdown", "text"], "default": "markdown" }
+        {
+          "name": "library",
+          "type": "string",
+          "description": "Library name (e.g. react, nextjs, prisma)",
+          "required": true
+        },
+        {
+          "name": "version",
+          "type": "string",
+          "description": "Library version",
+          "required": false,
+          "default": "latest"
+        },
+        {
+          "name": "topic",
+          "type": "string",
+          "description": "Specific topic within the docs",
+          "required": false
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "description": "Output format",
+          "required": false,
+          "enum": ["markdown", "text"],
+          "default": "markdown"
+        }
       ]
     },
     {
@@ -28,23 +51,49 @@
       "description": "Search across library documentation",
       "params": [
         { "name": "query", "type": "string", "description": "Search query", "required": true },
-        { "name": "libraries", "type": "string", "description": "Comma-separated library names to search", "required": false },
-        { "name": "max_results", "type": "number", "description": "Maximum results to return", "required": false, "default": 5 }
+        {
+          "name": "libraries",
+          "type": "string",
+          "description": "Comma-separated library names to search",
+          "required": false
+        },
+        {
+          "name": "max_results",
+          "type": "number",
+          "description": "Maximum results to return",
+          "required": false,
+          "default": 5
+        }
       ]
     },
     {
       "name": "context7_list_libraries",
       "description": "List supported libraries",
       "params": [
-        { "name": "category", "type": "string", "description": "Filter by category", "required": false }
+        {
+          "name": "category",
+          "type": "string",
+          "description": "Filter by category",
+          "required": false
+        }
       ]
     },
     {
       "name": "context7_inject",
       "description": "Inject documentation into agent context",
       "params": [
-        { "name": "libraries", "type": "string", "description": "Comma-separated library names", "required": true },
-        { "name": "topic", "type": "string", "description": "Specific topic to inject", "required": false }
+        {
+          "name": "libraries",
+          "type": "string",
+          "description": "Comma-separated library names",
+          "required": true
+        },
+        {
+          "name": "topic",
+          "type": "string",
+          "description": "Specific topic to inject",
+          "required": false
+        }
       ]
     }
   ],
@@ -55,8 +104,20 @@
   "settings": {
     "section": "General",
     "fields": [
-      { "key": "maxDocLength", "label": "Max Doc Length (chars)", "type": "number", "description": "Maximum characters of documentation to return", "default": 5000 },
-      { "key": "autoInject", "label": "Auto-inject", "type": "boolean", "description": "Automatically inject docs into agent context", "default": false }
+      {
+        "key": "maxDocLength",
+        "label": "Max Doc Length (chars)",
+        "type": "number",
+        "description": "Maximum characters of documentation to return",
+        "default": 5000
+      },
+      {
+        "key": "autoInject",
+        "label": "Auto-inject",
+        "type": "boolean",
+        "description": "Automatically inject docs into agent context",
+        "default": false
+      }
     ]
   },
   "aiDisclosure": { "tools": ["Claude Code (Anthropic)"], "humanReview": true }
