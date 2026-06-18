@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-context7",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Injects up-to-date library docs into agent context",
   "kind": "esm",
   "entryPoint": "mod.ts",
@@ -41,7 +41,10 @@
           "type": "string",
           "description": "Output format",
           "required": false,
-          "enum": ["markdown", "text"],
+          "enum": [
+            "markdown",
+            "text"
+          ],
           "default": "markdown"
         }
       ]
@@ -50,7 +53,12 @@
       "name": "context7_search",
       "description": "Search across library documentation",
       "params": [
-        { "name": "query", "type": "string", "description": "Search query", "required": true },
+        {
+          "name": "query",
+          "type": "string",
+          "description": "Search query",
+          "required": true
+        },
         {
           "name": "libraries",
           "type": "string",
@@ -101,24 +109,32 @@
   "peerDependencies": {
     "cortex": ">=1.0.0"
   },
-  "settings": {
-    "section": "General",
-    "fields": [
-      {
-        "key": "maxDocLength",
-        "label": "Max Doc Length (chars)",
-        "type": "number",
-        "description": "Maximum characters of documentation to return",
-        "default": 5000
-      },
-      {
-        "key": "autoInject",
-        "label": "Auto-inject",
-        "type": "boolean",
-        "description": "Automatically inject docs into agent context",
-        "default": false
-      }
-    ]
+  "aiDisclosure": {
+    "tools": [
+      "Claude Code (Anthropic)"
+    ],
+    "humanReview": true
   },
-  "aiDisclosure": { "tools": ["Claude Code (Anthropic)"], "humanReview": true }
+  "homepage": "https://github.com/CortexPrism/cortex-plugin-context7",
+  "ui": {
+    "settings": {
+      "section": "General",
+      "fields": [
+        {
+          "key": "maxDocLength",
+          "label": "Max Doc Length (chars)",
+          "type": "number",
+          "description": "Maximum characters of documentation to return",
+          "default": 5000
+        },
+        {
+          "key": "autoInject",
+          "label": "Auto-inject",
+          "type": "boolean",
+          "description": "Automatically inject docs into agent context",
+          "default": false
+        }
+      ]
+    }
+  }
 }
