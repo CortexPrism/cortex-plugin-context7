@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-context7",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Injects up-to-date library docs into agent context",
   "kind": "esm",
   "entryPoint": "mod.ts",
@@ -28,7 +28,7 @@
           "type": "string",
           "description": "Library version",
           "required": false,
-          "default": "latest"
+          "defaultValue": "latest"
         },
         {
           "name": "topic",
@@ -45,7 +45,7 @@
             "markdown",
             "text"
           ],
-          "default": "markdown"
+          "defaultValue": "markdown"
         }
       ]
     },
@@ -70,7 +70,7 @@
           "type": "number",
           "description": "Maximum results to return",
           "required": false,
-          "default": 5
+          "defaultValue": 5
         }
       ]
     },
@@ -107,7 +107,7 @@
   ],
   "dependencies": {},
   "peerDependencies": {
-    "cortex": ">=1.0.0"
+    "cortex": ">=0.51.0"
   },
   "aiDisclosure": {
     "tools": [
@@ -125,14 +125,14 @@
           "label": "Max Doc Length (chars)",
           "type": "number",
           "description": "Maximum characters of documentation to return",
-          "default": 5000
+          "defaultValue": 5000
         },
         {
           "key": "autoInject",
           "label": "Auto-inject",
           "type": "boolean",
           "description": "Automatically inject docs into agent context",
-          "default": false
+          "defaultValue": false
         }
       ]
     }
